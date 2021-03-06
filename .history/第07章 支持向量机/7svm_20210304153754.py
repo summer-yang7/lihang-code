@@ -107,7 +107,6 @@ def gaussian(x, l):
 l1, l2 = -1, 1
 x_new = np.empty((len(x), 2))
 
-
 for i, data in enumerate(x):
     x_new[i, 0] = gaussian(data, l1)
     x_new[i, 1] = gaussian(data, l2)

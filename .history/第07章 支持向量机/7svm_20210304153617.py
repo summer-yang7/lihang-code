@@ -95,23 +95,3 @@ y = np.array((x >= -2) & (x <= 2), dtype='int')
 plt.scatter(x[y==0], [0]*len(x[y==0]))
 plt.scatter(x[y==1], [0]*len(x[y==1]))
 plt.show()
-
-def gaussian(x, l):
-    # 此处直接将超参数 γ 设定为 1.0；
-    # 此处 x 表示一维的样本，也就是一个具体的值，l 相应的也是一个具体的数，因为 l 和 x 一样，从特征空间中选定；
-    gamma = 1.0
-    # 此处因为 x 和 l 都只是一个数，不需要再计算模，可以直接平方；
-    return np.exp(-gamma * (x-l)**2)
-
-# 设定地标 l1、l2 为 -1和1
-l1, l2 = -1, 1
-x_new = np.empty((len(x), 2))
-
-
-for i, data in enumerate(x):
-    x_new[i, 0] = gaussian(data, l1)
-    x_new[i, 1] = gaussian(data, l2)
-
-plt.scatter(x_new[y==0, 0], x_new[y==0, 1])
-plt.scatter(x_new[y==1, 0], x_new[y==1, 1])
-plt.show()
